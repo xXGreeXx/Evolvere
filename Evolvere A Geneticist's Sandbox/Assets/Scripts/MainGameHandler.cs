@@ -15,8 +15,10 @@ public class MainGameHandler : MonoBehaviour {
     }
 
     //define global variables
-    List<GameObject> creatures = new List<GameObject>();
+    public static List<GameObject> creatures = new List<GameObject>();
     int simulationDays = 0;
+
+    public static int creatureSpawnRate = 15;
 
 	// Use this for initialization
 	void Start () {
