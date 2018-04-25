@@ -20,6 +20,7 @@ public class CreatureSpawn : MonoBehaviour {
 
             Rigidbody body = go.AddComponent<Rigidbody>();
             body.mass = 5000;
+            CreatureBehaviorScript script = go.AddComponent<CreatureBehaviorScript>();
 
             //add creature to main creature list
             MainGameHandler.creatures.Add(go);
