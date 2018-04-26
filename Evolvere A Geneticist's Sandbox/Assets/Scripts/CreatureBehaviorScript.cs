@@ -4,15 +4,22 @@ using UnityEngine;
 
 public class CreatureBehaviorScript : MonoBehaviour {
 
-    Vector3 targetPosition = new Vector3();
-
+    //variables for both plants and animals
+    MainGameHandler.CreatureType creatureType;
     int maxHealth = 100;
     int health = 100;
     int reproductionValue = 100;
-    int speed = 50;
-    int food = 0;
     int water = 0;
 
+    //variables for animals
+    Vector3 targetPosition = new Vector3();
+    int speed = 50;
+    int food = 0;
+
+    //variables for plants
+    int energy = 0;
+    int height = 0;
+    int heightMax = 0;
 
 	//start
 	void Start ()
@@ -24,9 +31,16 @@ public class CreatureBehaviorScript : MonoBehaviour {
 	//update
 	void FixedUpdate ()
     {
-        transform.LookAt(targetPosition);
+        //handle if plant
+        if (creatureType.Equals(MainGameHandler.CreatureType.Plant))
+        {
 
-        Rigidbody body = transform.GetComponent<Rigidbody>();
-        body.AddForce(new Vector3(0, 0, speed + body.mass), ForceMode.Force);
+        }
+        else
+        {
+            transform.LookAt(targetPosition);
+            Rigidbody body = transform.GetComponent<Rigidbody>();
+            body.AddForce(new Vector3(0, 0, speed + body.mass), ForceMode.Force);
+        }
 	}
 }

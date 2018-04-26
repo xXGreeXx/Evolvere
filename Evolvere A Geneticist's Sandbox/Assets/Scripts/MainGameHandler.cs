@@ -27,6 +27,7 @@ public class MainGameHandler : MonoBehaviour {
     public static int creatureSpawnRate = 15;
 
     public static WeatherTypes currentWeather = WeatherTypes.Sunny;
+    public static int currentTimeOfDay = 0;
 
 	// Use this for initialization
 	void Start () {

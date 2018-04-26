@@ -20,8 +20,8 @@ public class CameraScript : MonoBehaviour {
         //move camera
         if (Input.GetMouseButton(0))
         {
-            transform.LookAt(new Vector3(210, 0, 290));
-            transform.RotateAround(new Vector3(210, 0, 290), Vector3.up, Input.GetAxis("Mouse X") * 2);
+            transform.LookAt(new Vector3(250, 0, 250));
+            transform.RotateAround(new Vector3(250, 0, 250), Vector3.up, Input.GetAxis("Mouse X") * 2);
         }
     }
 }
