@@ -76,10 +76,11 @@ public class MainGameHandler : MonoBehaviour {
         {
             go.transform.localScale = new Vector3(2, 2, 2);
             go.GetComponent<Renderer>().material.color = Color.green;
+            body.isKinematic = true;
 
-            BoxCollider boxCol = go.AddComponent<BoxCollider>();
-            boxCol.center = new Vector3(0, -0.9F, 0);
-            boxCol.size = new Vector3(1, 0.15F, 1);
+            //BoxCollider boxCol = go.AddComponent<BoxCollider>();
+            //boxCol.center = new Vector3(0, -0.9F, 0);
+            //boxCol.size = new Vector3(4, 0.15F, 4);
         }
 
         //add creature to main creature list

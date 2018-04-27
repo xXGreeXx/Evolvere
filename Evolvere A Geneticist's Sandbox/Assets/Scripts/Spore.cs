@@ -7,7 +7,7 @@ public class Spore : MonoBehaviour {
 	//start
 	void Start ()
     {
-        transform.GetComponent<Rigidbody>().AddForce(new Vector3(Random.Range(-1, 1), 0, Random.Range(-1, 1)), ForceMode.Impulse);
+        transform.GetComponent<Rigidbody>().AddForce(new Vector3(Random.Range(-3, 4), 0, Random.Range(-3, 4)), ForceMode.Impulse);
     }
 	
 	//update
