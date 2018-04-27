@@ -4,8 +4,14 @@ using UnityEngine;
 
 public class CameraScript : MonoBehaviour {
 
+    //start
+    void Start()
+    {
+        transform.LookAt(new Vector3(250, 0, 250));
+    }
+
     //update
-	void Update () {
+    void Update () {
 
         //scroll camera in and out
         if (Input.GetAxis("Mouse ScrollWheel") > 0f && Camera.main.fieldOfView > 5)

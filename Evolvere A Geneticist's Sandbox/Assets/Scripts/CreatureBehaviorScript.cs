@@ -5,7 +5,7 @@ using UnityEngine;
 public class CreatureBehaviorScript : MonoBehaviour {
 
     //variables for both plants and animals
-    MainGameHandler.CreatureType creatureType;
+    public MainGameHandler.CreatureType creatureType;
     int maxHealth = 100;
     int health = 100;
     int reproductionValue = 100;
@@ -31,10 +31,32 @@ public class CreatureBehaviorScript : MonoBehaviour {
 	//update
 	void FixedUpdate ()
     {
+        //cause death if below water level
+        if (transform.position.y < MainGameHandler.waterLevel)
+        {
+            MainGameHandler.creatures.Remove(gameObject);
+            Destroy(gameObject);
+        }
+
         //handle if plant
         if (creatureType.Equals(MainGameHandler.CreatureType.Plant))
         {
+            //increase reproduction value
+            reproductionValue++;
 
+            if (reproductionValue >= 500)
+            {
+                GameObject spore = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+                spore.name = "Spore";
+                spore.transform.position = transform.position;
+                spore.transform.localScale = new Vector3(0.5F, 0.5F, 0.5F);
+
+                Spore sporeScript = spore.AddComponent<Spore>();
+                Rigidbody body = spore.AddComponent<Rigidbody>();
+                body.mass = 0.025F;
+
+                reproductionValue = 0;
+            }
         }
         else
         {
